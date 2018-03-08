@@ -1,17 +1,19 @@
 package business.entity;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import java.io.Serializable;
 import lombok.Data;
+
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Data
 public class Groupe implements Serializable{
    @Id
-   @GeneratedValue
-   private int  id;
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
+   private int  idGroupe;
    private String label;
+   @OneToMany(mappedBy = "groupe")
+   private List<Groupe_User> groupe;
 }
