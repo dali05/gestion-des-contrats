@@ -3,11 +3,13 @@ package pw.web;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
 @EnableJpaRepositories(basePackages = {"role.reposetory"})
 @EntityScan(basePackages = {"business.entity"})
+@ComponentScan(basePackages = {"role.reposetory","business.entity","pw.web"})
 public class DemoApp {
     public static void main(String[] args){
         SpringApplication.run(DemoApp.class,args);

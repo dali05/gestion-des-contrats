@@ -20,8 +20,11 @@ public class User implements Serializable{
     @ManyToOne
     @JoinColumn(name = "idRole")
     private Role role;
-    @OneToMany(mappedBy = "user")
-    private List<Groupe_User> user;
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "user_groupe", joinColumns = @JoinColumn(name = "idUser"),
+                inverseJoinColumns = @JoinColumn(name = "idGroupe"))
+    private List<Groupe> groupes;
+
 
     public User(String userName, String password, Role role) {
         this.userName = userName;
