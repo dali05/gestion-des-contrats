@@ -16,7 +16,9 @@ public class User implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idUser;
     private String userName;
+    @
     private String password;
+    private boolean active;
     @ManyToOne
     @JoinColumn(name = "idRole")
     private Role role;
@@ -26,9 +28,10 @@ public class User implements Serializable{
     private List<Groupe> groupes;
 
 
-    public User(String userName, String password, Role role) {
+    public User(String userName, String password,boolean active, Role role) {
         this.userName = userName;
         this.password = password;
         this.role = role;
+        this.active=active;
     }
 }
