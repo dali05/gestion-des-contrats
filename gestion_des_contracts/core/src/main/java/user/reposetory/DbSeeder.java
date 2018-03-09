@@ -17,7 +17,7 @@ public class DbSeeder implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         Role r1 = new Role("admin");
-        User u1 = new User("dali","123",r1);
+        User u1 = new User("admin","admin",r1);
         this.roleReposetory.save(r1);
         this.userReposetory.save(u1);
     }
